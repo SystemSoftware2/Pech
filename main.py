@@ -2,12 +2,6 @@ from kernel.kernel import *
 import uasyncio as asyncio
 
 proc_code1 = '''
-[HEADER]:
-pid:1
-prio:0
-name:filetest
-[ATTRS]
-[PROG]
 print(f"USER: Started with PID {pid}")
 
 request = {
@@ -36,7 +30,8 @@ print(f"USER: Result from FS: {data}")
 '''
 
 if __name__ == "__main__":
-    create_proc(proc_code1)
+    create_proc(proc_code1, 1)
     boot()
 
     asyncio.run(scheduler())
+
